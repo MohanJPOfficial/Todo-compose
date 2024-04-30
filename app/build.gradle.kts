@@ -16,7 +16,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.mohanjp.todocompose.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -79,11 +79,20 @@ dependencies {
     ksp("androidx.room:room-compiler:2.6.1")
 
     //dagger
-    implementation("com.google.dagger:hilt-android:2.47")
-    ksp("com.google.dagger:hilt-android-compiler:2.47")
+    implementation("com.google.dagger:hilt-android:2.50")
+    ksp("com.google.dagger:hilt-android-compiler:2.50")
     //ksp("androidx.hilt:hilt-compiler:1.1.0")
 
-    //testing
+    /**
+     * junit test
+     */
     testImplementation("com.google.truth:truth:1.1.5")
     testImplementation("io.mockk:mockk:1.13.10")
+    testImplementation("com.google.truth:truth:1.1.5")
+
+    /**
+     * instrumented test
+     */
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.50")
+    androidTestImplementation("com.google.truth:truth:1.1.5")
 }
